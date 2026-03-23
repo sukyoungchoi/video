@@ -1,1 +1,198 @@
 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Landing Page Tutorial</title>
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --sub: #666;
+      --card: #f5f5f5;
+    }
+
+    body.dark {
+      --bg: #111111;
+      --text: #f5f5f5;
+      --sub: #aaa;
+      --card: #1c1c1c;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: 0.3s;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .controls button {
+      margin-left: 10px;
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      background: none;
+      cursor: pointer;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin-top: 40px;
+    }
+
+    p {
+      color: var(--sub);
+    }
+
+    .card {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    video {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: var(--sub);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div><strong id="logo">랜딩 페이지 튜토리얼</strong></div>
+  <div class="controls">
+    <button onclick="toggleLang()">ENG/KOR</button>
+    <button onclick="toggleTheme()">☀️/🌙</button>
+  </div>
+</header>
+
+<section>
+  <h1 id="title">랜딩 페이지 만들기</h1>
+  <p id="desc">이 튜토리얼을 따라하면 누구나 쉽게 원페이지 웹사이트를 만들 수 있습니다.</p>
+</section>
+
+<section>
+  <h2 id="step1">Step 1. 구조 만들기</h2>
+  <div class="card">
+    <p id="step1desc">
+      HTML 파일을 생성하고 기본 구조를 작성합니다. header, section, footer를 구성하세요.
+    </p>
+  </div>
+</section>
+
+<section>
+  <h2 id="step2">Step 2. 스타일 적용</h2>
+  <div class="card">
+    <p id="step2desc">
+      CSS를 사용해 간결하고 정돈된 디자인을 적용하세요. 여백과 색상을 단순하게 유지하는 것이 중요합니다.
+    </p>
+  </div>
+</section>
+
+<section>
+  <h2 id="step3">Step 3. 인터랙션 추가</h2>
+  <div class="card">
+    <p id="step3desc">
+      JavaScript를 이용해 언어 전환과 다크모드를 구현하세요.
+    </p>
+  </div>
+</section>
+
+<section>
+  <h2 id="videoTitle">영상 예시</h2>
+  <p id="videoDesc">아래 영상은 랜딩 페이지에 포함된 미디어 예시입니다.</p>
+
+  <video controls autoplay muted loop>
+    <source src="https://raw.githubusercontent.com/sukyoungchoi/video/main/asset/Camera_panning_around_202603231347.mp4" type="video/mp4">
+  </video>
+</section>
+
+<footer>
+  <p id="footerText">© 2026 Landing Tutorial</p>
+</footer>
+
+<script>
+  let isKorean = true;
+
+  function toggleLang() {
+    isKorean = !isKorean;
+
+    if (!isKorean) {
+      document.getElementById("logo").innerText = "Landing Page Tutorial";
+      document.getElementById("title").innerText = "Build a Landing Page";
+      document.getElementById("desc").innerText = "Follow this tutorial step by step to create your own one-page website.";
+
+      document.getElementById("step1").innerText = "Step 1. Structure";
+      document.getElementById("step1desc").innerText = "Create an HTML file and define the basic structure with header, sections, and footer.";
+
+      document.getElementById("step2").innerText = "Step 2. Styling";
+      document.getElementById("step2desc").innerText = "Apply a clean and minimal design using CSS. Keep spacing and colors simple.";
+
+      document.getElementById("step3").innerText = "Step 3. Interaction";
+      document.getElementById("step3desc").innerText = "Use JavaScript to implement language toggle and dark mode.";
+
+      document.getElementById("videoTitle").innerText = "Video Example";
+      document.getElementById("videoDesc").innerText = "This is a sample media section included in the landing page.";
+
+      document.getElementById("footerText").innerText = "© 2026 Landing Tutorial";
+    } else {
+      document.getElementById("logo").innerText = "랜딩 페이지 튜토리얼";
+      document.getElementById("title").innerText = "랜딩 페이지 만들기";
+      document.getElementById("desc").innerText = "이 튜토리얼을 따라하면 누구나 쉽게 원페이지 웹사이트를 만들 수 있습니다.";
+
+      document.getElementById("step1").innerText = "Step 1. 구조 만들기";
+      document.getElementById("step1desc").innerText = "HTML 파일을 생성하고 기본 구조를 작성합니다. header, section, footer를 구성하세요.";
+
+      document.getElementById("step2").innerText = "Step 2. 스타일 적용";
+      document.getElementById("step2desc").innerText = "CSS를 사용해 간결하고 정돈된 디자인을 적용하세요.";
+
+      document.getElementById("step3").innerText = "Step 3. 인터랙션 추가";
+      document.getElementById("step3desc").innerText = "JavaScript를 이용해 언어 전환과 다크모드를 구현하세요.";
+
+      document.getElementById("videoTitle").innerText = "영상 예시";
+      document.getElementById("videoDesc").innerText = "아래 영상은 랜딩 페이지에 포함된 미디어 예시입니다.";
+
+      document.getElementById("footerText").innerText = "© 2026 랜딩 튜토리얼";
+    }
+  }
+
+  function toggleTheme() {
+    document.body.classList.toggle("dark");
+  }
+</script>
+
+</body>
+</html>
